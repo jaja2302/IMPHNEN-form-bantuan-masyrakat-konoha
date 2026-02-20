@@ -1,0 +1,45 @@
+:root {
+  /* Palet Warna - Blueprint Section 8 */
+  --biru-pemerintah: #1a365d;
+  --biru-sedang: #2b6cb0;
+  --emas-birokrasi: #c6a84b;
+  --merah-stempel: #9b2c2c;
+  --abu-formulir: #f0f2f5;
+  --putih-bersih: #ffffff;
+
+  /* Typography */
+  --font-heading: 'Merriweather', Georgia, serif;
+  --font-body: 'Source Sans 3', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--abu-formulir);
+  color: var(--biru-pemerintah);
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+input, select, textarea {
+  font-family: var(--font-body);
+}
