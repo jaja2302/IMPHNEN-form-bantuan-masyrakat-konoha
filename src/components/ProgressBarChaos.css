@@ -23,3 +23,13 @@
   color: var(--biru-pemerintah);
   text-shadow: 0 0 2px white;
 }
+
+.progress-bar-chaos-msg {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  color: var(--merah-stempel);
+  margin-left: 0.5rem;
+}

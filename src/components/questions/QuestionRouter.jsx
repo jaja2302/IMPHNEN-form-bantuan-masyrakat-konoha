@@ -1,3 +1,4 @@
+import { useAppState } from '../../context/AppState';
 import Q01_NamaSamaran from './Q01_NamaSamaran';
 import Q02_TanggalLahir from './Q02_TanggalLahir';
 import Q03_JenisKelamin from './Q03_JenisKelamin';
@@ -45,11 +46,10 @@ const QUESTIONS = [
 ];
 
 export default function QuestionRouter({ step, totalSteps, onNext, onPrev }) {
-  const { useAppState } = require('../../context/AppState');
   const { roulettePosition, rouletteQuestion } = useAppState();
 
   if (step > totalSteps) {
-    return <FinalGatekeeper onSuccess={onNext} />;
+    return <FinalGatekeeper />;
   }
 
   const showRouletteHere = roulettePosition != null && step === roulettePosition && rouletteQuestion;
@@ -58,7 +58,7 @@ export default function QuestionRouter({ step, totalSteps, onNext, onPrev }) {
   return (
     <div className="question-router">
       {showRouletteHere && (
-        <RouletteQuestion question={rouletteQuestion} onNext={onNext} />
+        <RouletteQuestion question={rouletteQuestion} onNext={onNext} onPrev={onPrev} />
       )}
       {!showRouletteHere && QuestionComponent && (
         <QuestionComponent

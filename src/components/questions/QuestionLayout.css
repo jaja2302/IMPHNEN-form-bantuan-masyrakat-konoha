@@ -47,3 +47,64 @@
 .question-layout-btn.prev:hover {
   background: var(--abu-formulir);
 }
+
+.question-input,
+.question-select {
+  width: 100%;
+  max-width: 320px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.question-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.question-radio {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.question-slider {
+  width: 100%;
+  max-width: 280px;
+}
+
+.question-slider-value {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-weight: 600;
+}
+
+.question-feedback {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.question-feedback.positive {
+  color: var(--biru-sedang);
+}
+
+.question-feedback.negative {
+  color: var(--merah-stempel);
+}
+
+.question-loading-bar {
+  height: 8px;
+  background: linear-gradient(90deg, var(--biru-pemerintah) 0%, transparent 50%);
+  background-size: 200% 100%;
+  animation: loading 1.5s linear infinite;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

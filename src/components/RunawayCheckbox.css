@@ -1,0 +1,29 @@
+.runaway-wrapper {
+  position: relative;
+}
+
+.runaway-area {
+  position: relative;
+  height: 140px;
+  background: var(--abu-formulir);
+  border-radius: 8px;
+}
+
+.runaway-box {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--putih-bersih);
+  border: 2px solid var(--biru-pemerintah);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: left 0.1s ease, top 0.1s ease;
+  font-size: 1.2rem;
+}
+
+.runaway-box:hover {
+  background: #e8f0fe;
+}

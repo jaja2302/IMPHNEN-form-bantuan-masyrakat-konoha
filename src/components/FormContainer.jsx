@@ -1,19 +1,32 @@
 import { useEffect } from 'react';
 import { useAppState } from '../context/AppState';
+import { getRandomRouletteQuestion, getRandomRoulettePosition } from '../utils/rouletteQuestions';
 import ProgressBarChaos from './ProgressBarChaos';
 import QuestionRouter from './questions/QuestionRouter';
 import './FormContainer.css';
 
-const TOTAL_STEPS = 20;
+const TOTAL_STEPS = 21;
 
 export default function FormContainer() {
-  const { currentStep, dispatch, formRotation, characterClass, startTime } = useAppState();
+  const { currentStep, dispatch, formRotation, characterClass, startTime, roulettePosition } = useAppState();
 
   useEffect(() => {
     if (!startTime) {
       dispatch({ type: 'SET_START_TIME', payload: Date.now() });
     }
   }, [startTime, dispatch]);
+
+  useEffect(() => {
+    if (roulettePosition === null) {
+      dispatch({
+        type: 'SET_ROULETTE',
+        payload: {
+          position: getRandomRoulettePosition(),
+          question: getRandomRouletteQuestion(),
+        },
+      });
+    }
+  }, [roulettePosition, dispatch]);
 
   const style = {
     transform: formRotation ? `rotate(${formRotation}deg)` : undefined,

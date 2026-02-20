@@ -1,0 +1,26 @@
+.fake-bsod {
+  position: fixed;
+  inset: 0;
+  background: #0078d4;
+  color: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 2rem;
+}
+
+.fake-bsod-content {
+  max-width: 480px;
+}
+
+.fake-bsod-title {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.fake-bsod-progress {
+  margin-top: 2rem;
+  font-family: var(--font-mono);
+}

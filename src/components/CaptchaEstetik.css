@@ -1,0 +1,24 @@
+.captcha-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.captcha-item {
+  padding: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background: var(--putih-bersih);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.captcha-item:hover {
+  border-color: var(--biru-sedang);
+  background: #f0f7ff;
+}
+
+.captcha-item.selected {
+  border-color: var(--biru-pemerintah);
+  background: #e8f0fe;
+}
