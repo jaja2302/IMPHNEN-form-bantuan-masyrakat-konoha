@@ -1,15 +1,27 @@
+import { useState, useEffect } from 'react';
 import { useAppState } from '../../context/AppState';
 import QuestionLayout from './QuestionLayout';
-
-const OPTIONS = [
-  { id: 'obeng', label: 'Obeng' },
-  { id: 'lipstik', label: 'Lipstik' },
-  { id: 'panci', label: 'Panci' },
-];
+import './Q03_JenisKelamin.css';
 
 export default function Q03_JenisKelamin({ onNext, onPrev, step, totalSteps }) {
   const { answers, dispatch } = useAppState();
   const value = answers['q03'] ?? '';
+  const [previewUrl, setPreviewUrl] = useState(null);
+
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+      setPreviewUrl(URL.createObjectURL(file));
+      dispatch({ type: 'SET_ANSWER', payload: { id: 'q03', value: file.name } });
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+    };
+  }, [previewUrl]);
 
   const handleNext = () => {
     if (!value) return;
@@ -17,19 +29,20 @@ export default function Q03_JenisKelamin({ onNext, onPrev, step, totalSteps }) {
   };
 
   return (
-    <QuestionLayout title="Jenis Kelamin — Pilih foto benda yang mewakili" onPrev={onPrev} onNext={handleNext} step={step} totalSteps={totalSteps}>
-      <div className="question-options">
-        {OPTIONS.map((opt) => (
-          <label key={opt.id} className="question-radio">
-            <input
-              type="radio"
-              name="q03"
-              checked={value === opt.id}
-              onChange={() => dispatch({ type: 'SET_ANSWER', payload: { id: 'q03', value: opt.id } })}
-            />
-            <span>{opt.label}</span>
-          </label>
-        ))}
+    <QuestionLayout title="Jenis Kelamin" onPrev={onPrev} onNext={handleNext} step={step} totalSteps={totalSteps}>
+      <div className="q03-file-wrap">
+        <input
+          type="file"
+          id="q03-file"
+          accept="image/*"
+          onChange={handleFileChange}
+          className="q03-file-input"
+        />
+        {previewUrl && (
+          <div className="q03-preview">
+            <img src={previewUrl} alt="Preview" />
+          </div>
+        )}
       </div>
     </QuestionLayout>
   );

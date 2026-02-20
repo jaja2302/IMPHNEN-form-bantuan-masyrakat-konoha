@@ -4,14 +4,12 @@ const MAX_STRIKES = 3;
 
 export function useMouseLoyalty(onStrike, onReset, loyaltyStrikes, dispatch) {
   const handleMouseOut = useCallback((e) => {
-    if (!e.relatedTarget && e.clientY <= 0) return;
-    if (e.relatedTarget === null && e.target === document.body) {
-      onStrike?.();
-      const next = (loyaltyStrikes ?? 0) + 1;
-      dispatch?.({ type: 'SET_LOYALTY_STRIKES', payload: next });
-      if (next >= MAX_STRIKES) {
-        onReset?.();
-      }
+    if (e.relatedTarget !== null) return;
+    onStrike?.();
+    const next = (loyaltyStrikes ?? 0) + 1;
+    dispatch?.({ type: 'SET_LOYALTY_STRIKES', payload: next });
+    if (next >= MAX_STRIKES) {
+      onReset?.();
     }
   }, [onStrike, onReset, loyaltyStrikes, dispatch]);
 

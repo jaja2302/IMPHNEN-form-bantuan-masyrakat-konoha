@@ -22,3 +22,43 @@
   font-size: 0.75rem;
   color: #999;
 }
+
+.loyalty-counter {
+  position: fixed;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 100;
+  font-size: 0.75rem;
+  color: var(--merah-stempel);
+  background: rgba(255,255,255,0.95);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.loyalty-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background: var(--putih-bersih);
+  border: 2px solid var(--emas-birokrasi);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.loyalty-popup button {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: var(--biru-pemerintah);
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.form-vertigo-msg {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0.5rem 0;
+}

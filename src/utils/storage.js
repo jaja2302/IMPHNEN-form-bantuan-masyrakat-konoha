@@ -66,6 +66,14 @@ export function addRefreshPenalty() {
   return next;
 }
 
+export function extendBlockByOneHour() {
+  const until = getBlockUntil();
+  if (!until) return;
+  const extended = new Date(until.getTime() + 60 * 60 * 1000);
+  setBlockUntil(extended);
+  addRefreshPenalty();
+}
+
 export function applyBandingPenalty() {
   const until = new Date(Date.now() + BANDING_PENALTY_MS);
   setBlockUntil(until);
@@ -88,7 +96,12 @@ export function saveToLeaderboard(entry) {
       topTimes: newTop,
       firstClear,
     },
+    lastEntry: entry,
   });
+}
+
+export function getLastEntry() {
+  return getStorage().lastEntry ?? null;
 }
 
 export function addRageQuit() {

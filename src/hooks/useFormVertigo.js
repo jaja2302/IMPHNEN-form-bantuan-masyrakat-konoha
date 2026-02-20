@@ -12,11 +12,10 @@ export function useFormVertigo(currentStep, dispatch, formRotation) {
   }, [currentStep, formRotation, dispatch]);
 
   useEffect(() => {
-    if (currentStep >= 15) {
-      const base = BASE_ROTATION;
-      dispatch?.({ type: 'SET_FORM_ROTATION', payload: base });
+    if (currentStep >= 15 && (formRotation === 0 || formRotation == null)) {
+      dispatch?.({ type: 'SET_FORM_ROTATION', payload: BASE_ROTATION });
     }
-  }, [currentStep, dispatch]);
+  }, [currentStep, formRotation, dispatch]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });

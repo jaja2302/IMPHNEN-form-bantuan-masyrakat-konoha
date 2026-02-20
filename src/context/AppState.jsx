@@ -17,6 +17,7 @@ const initialState = {
   agreedToTC: false,
   roulettePosition: null,
   rouletteQuestion: null,
+  registrationNo: null,
 };
 
 function reducer(state, action) {
@@ -52,12 +53,15 @@ function reducer(state, action) {
         roulettePosition: action.payload.position,
         rouletteQuestion: action.payload.question,
       };
+    case 'SET_REGISTRATION_NO':
+      return { ...state, registrationNo: action.payload };
     case 'RESET_FORM':
       return {
         ...initialState,
         agreedToTC: state.agreedToTC,
         tcSecretFound: state.tcSecretFound,
         isBlocked: state.isBlocked,
+        registrationNo: state.registrationNo,
       };
     case 'FULL_RESET':
       return { ...initialState };

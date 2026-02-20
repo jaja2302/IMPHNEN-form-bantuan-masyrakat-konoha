@@ -1,0 +1,60 @@
+.q02-date-steppers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.q02-stepper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.q02-stepper-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.q02-stepper-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.q02-btn {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--biru-pemerintah);
+  background: var(--putih-bersih);
+  color: var(--biru-pemerintah);
+  font-size: 1.25rem;
+  line-height: 1;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+
+.q02-btn:hover {
+  background: var(--biru-pemerintah);
+  color: white;
+}
+
+.q02-stepper-value {
+  min-width: 2.5rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.q02-preview {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #666;
+}

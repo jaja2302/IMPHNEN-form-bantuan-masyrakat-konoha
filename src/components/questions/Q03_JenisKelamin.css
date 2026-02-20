@@ -1,0 +1,22 @@
+.q03-file-wrap {
+  margin: 0.5rem 0;
+}
+
+.q03-file-input {
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
+}
+
+.q03-preview {
+  margin-top: 1rem;
+  max-width: 280px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid var(--biru-pemerintah);
+}
+
+.q03-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+}

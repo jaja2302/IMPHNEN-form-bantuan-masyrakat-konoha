@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getBlockUntil, isBlocked, applyBandingPenalty } from '../utils/storage';
+import { getBlockUntil, isBlocked, applyBandingPenalty, extendBlockByOneHour } from '../utils/storage';
 import './CooldownScreen.css';
 
 export default function CooldownScreen() {
@@ -11,6 +11,14 @@ export default function CooldownScreen() {
       navigate('/', { replace: true });
     }
   }, [navigate]);
+
+  useEffect(() => {
+    const onBeforeUnload = () => {
+      if (isBlocked()) extendBlockByOneHour();
+    };
+    window.addEventListener('beforeunload', onBeforeUnload);
+    return () => window.removeEventListener('beforeunload', onBeforeUnload);
+  }, []);
 
   const until = getBlockUntil();
   const message = until

@@ -1,13 +1,31 @@
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppState } from '../context/AppState';
+import { saveToLeaderboard } from '../utils/storage';
 import './FinalGatekeeper.css';
 
 const HOVER_MS = 60000;
 
+function removeVowels(s) {
+  return (s || '').replace(/[aeiouAEIOU]/g, '');
+}
+
+function randomNIP18() {
+  let n = '';
+  for (let i = 0; i < 18; i++) n += Math.floor(Math.random() * 10);
+  return n;
+}
+
+function getKelas(timeMs) {
+  const min = timeMs / 60000;
+  if (min < 5) return 'S';
+  if (min > 30) return 'B';
+  return 'A';
+}
+
 export default function FinalGatekeeper() {
   const navigate = useNavigate();
-  const { dispatch } = useAppState();
+  const { dispatch, answers, startTime } = useAppState();
   const [confirmStep, setConfirmStep] = useState(0);
   const [hoverProgress, setHoverProgress] = useState(0);
   const hoverStart = useRef(null);
@@ -30,6 +48,17 @@ export default function FinalGatekeeper() {
   };
 
   const handleRealSubmit = () => {
+    const name = answers['q01'] || '';
+    const timeMs = startTime ? Date.now() - startTime : 0;
+    const entry = {
+      username: removeVowels(name),
+      name,
+      nip: randomNIP18(),
+      timeMs,
+      kelas: getKelas(timeMs),
+      status: 'Disetujui untuk dipertimbangkan di periode kepemimpinan berikutnya.',
+    };
+    saveToLeaderboard(entry);
     navigate('/hall-of-fame');
   };
 
@@ -91,6 +120,11 @@ export default function FinalGatekeeper() {
       >
         {canSubmit ? 'Tidak, saya menyerah' : `Tidak, saya menyerah (${Math.round(hoverProgress)}%)`}
       </button>
+      <p className="final-gatekeeper-touch">
+        <button type="button" className="final-gatekeeper-touch-btn" onClick={handleRealSubmit}>
+          Saya pakai perangkat sentuh — lanjut
+        </button>
+      </p>
     </div>
   );
 }
