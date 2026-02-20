@@ -1,0 +1,24 @@
+.form-container-wrapper {
+  min-height: 100vh;
+  background: var(--abu-formulir);
+  padding: 1rem;
+}
+
+.form-container {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--putih-bersih);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: relative;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.form-reg-no {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.75rem;
+  color: #999;
+}

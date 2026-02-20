@@ -1,0 +1,65 @@
+.cooldown {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--abu-formulir);
+  position: relative;
+}
+
+.cooldown-watermark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-35deg);
+  font-size: 3rem;
+  color: rgba(26, 54, 93, 0.06);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cooldown-card {
+  position: relative;
+  z-index: 1;
+  max-width: 480px;
+  padding: 2rem;
+  background: var(--putih-bersih);
+  border: 2px solid var(--merah-stempel);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.cooldown-card h1 {
+  color: var(--merah-stempel);
+  margin-top: 0;
+}
+
+.cooldown-message {
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+.cooldown-sub {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.cooldown-banding {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--biru-pemerintah);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.cooldown-banding:hover {
+  background: var(--biru-sedang);
+}
+
+.cooldown-warn {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: #999;
+}

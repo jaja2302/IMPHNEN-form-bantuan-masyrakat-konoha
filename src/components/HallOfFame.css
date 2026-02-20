@@ -1,0 +1,54 @@
+.hof {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #c6a84b 0%, #e8d48b 50%, #c6a84b 100%);
+  position: relative;
+}
+
+.hof-watermark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  font-size: 2.5rem;
+  color: rgba(0, 0, 0, 0.08);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hof-card {
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+  padding: 2rem;
+  background: var(--putih-bersih);
+  border: 4px double var(--emas-birokrasi);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.hof-card h1 {
+  color: var(--biru-pemerintah);
+  margin-top: 0;
+}
+
+.hof-placeholder {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 1rem 0;
+}
+
+.hof-back {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--biru-pemerintah);
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.hof-back:hover {
+  background: var(--biru-sedang);
+}

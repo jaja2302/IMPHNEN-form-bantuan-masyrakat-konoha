@@ -1,0 +1,105 @@
+.landing {
+  min-height: 100vh;
+  background: var(--abu-formulir);
+  position: relative;
+}
+
+.landing-watermark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-35deg);
+  font-size: clamp(2rem, 4vw, 4rem);
+  color: rgba(26, 54, 93, 0.06);
+  pointer-events: none;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.landing-header {
+  position: relative;
+  z-index: 1;
+  background: var(--biru-pemerintah);
+  color: var(--putih-bersih);
+  padding: 2rem;
+  text-align: center;
+}
+
+.landing-logo {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.landing-header h1 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.landing-subtitle {
+  margin: 0.5rem 0 0;
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+.landing-disclaimer {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 1rem auto;
+  padding: 1rem 1.5rem;
+  background: #fff3cd;
+  border: 1px solid var(--emas-birokrasi);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.landing-tc-wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+}
+
+.landing-tc-title {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.landing-tc-scroll {
+  border: 1px solid #ccc;
+  background: var(--putih-bersih);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.landing-tc-inner {
+  position: relative;
+}
+
+.landing-btn {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: var(--biru-pemerintah);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.landing-btn:hover {
+  background: var(--biru-sedang);
+}
+
+.landing-footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.85rem;
+  color: #666;
+  border-top: 1px solid #ddd;
+}
